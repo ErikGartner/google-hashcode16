@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -28,6 +29,8 @@ public class Solver2 {
             deliver(warehouses, productList, o, d);
         }
 
+        System.out.print(d.getCommandString());
+
     }
 
     private void deliver(List<Warehouse> warehouses, List<Product> productList, Order o, Drone d) {
@@ -38,14 +41,16 @@ public class Solver2 {
             Collections.sort(warehouses, new ClosestSorter(d));
 
             Warehouse w = warehouses.get(0);
-            if(!w.take(productList, d)) {
+            if(!w.take(productList, d)){
                 warehouses.remove(w);
             }
 
+        }
 
-            // go to each warehouse and pick products
-
-
+        for(Product p: d.inventory.keySet()) {
+            Command c = new DeliverCommand(d, o, p, d.inventory.get(p));
+            d.availableAt += c.getTime();
+            d.commands.add(c);
         }
 
     }
