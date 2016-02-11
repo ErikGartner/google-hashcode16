@@ -51,14 +51,30 @@ public class Solver2 {
     }
 
     private List<Warehouse> chooseWarehouses(Drone d, List<Product> productList, Order o) {
+        return problem.warehouseList;
     }
 
     private List<Product> chooseProductFrom(Drone d, Order o) {
+        int droneCapacity = 0;
 
+        List<Product> products = new ArrayList<Product>();
+        for (Product p : o.products.keySet()) {
+            int count = o.products.get(p);
+
+            for (int i = 0; i < count; i++) {
+                if (p.weight + droneCapacity > d.maxPayload) {
+                    return products;
+                }
+                products.add(p);  
+                droneCapacity += p.weight;
+            }
+        }
+
+        return products;
     }
 
-    public Order bestOrderFor(Drone d) {
-        return null;
+    public Order bestOrderFor(Drone d) {        
+        return problem.orderList.get(0);
     }
 
     class ClosestSorter implements Comparator<MapObject> {
