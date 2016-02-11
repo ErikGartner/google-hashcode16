@@ -10,4 +10,5 @@ public class Product {
         this.weight = weight;
         this.id = id;
     }
+
 }

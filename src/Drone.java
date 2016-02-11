@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class Drone extends MapObject{
     public Drone(int r, int c, int id) {
         super(r, c);
         this.id = id;
+        inventory = new HashMap<Product, Integer>();
     }
 
     public int compareTo(Object o) {

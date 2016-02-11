@@ -40,6 +40,7 @@ public class Main {
         List<Order> orderList = new ArrayList<Order>(nbrOrders);
         for(int i = 0; i < nbrOrders; i++ ){
             Order o = new Order(sc.nextInt(), sc.nextInt(), i);
+            orderList.add(o);
             Map<Product, Integer> inventory = new HashMap<Product, Integer>();
             o.products = inventory;
             int n = sc.nextInt();
@@ -61,10 +62,9 @@ public class Main {
 
         Problem p = new Problem(productsList, warehouseList, orderList, droneList, turns, maxPayload);
 
-    }
+        Solver2 solver2 = new Solver2(p);
+        solver2.solve();
 
-    public void solve() {
-        System.out.println("Klart!");
     }
 
 
