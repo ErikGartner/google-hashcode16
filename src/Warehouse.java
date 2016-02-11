@@ -18,7 +18,7 @@ public class Warehouse extends MapObject{
     	boolean change = false; 
     	Map<Product, Integer> productCount = new HashMap<Product, Integer>();
 
-    	for (int i = 0; i < productList.size(); i++) {
+    	for (int i = productList.size() - 1; i >= 0; i--) {
     		Product p = productList.get(i);
     		if (inventory.containsKey(p) && inventory.get(p) > 0) {
     			change = true;

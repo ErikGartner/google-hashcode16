@@ -21,5 +21,5 @@ public class Problem {
         this.maxTurns = turns;
         this.maxPayload = maxPayload;
     }
-
+    
 }
