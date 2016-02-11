@@ -13,8 +13,9 @@ public class Warehouse extends MapObject{
         super(r, c);
     }
 
-    public boolean take(List<Product> productList, Drone d) {
+    public boolean take(List<Product> productList, Drone d, Order o) {
     	boolean change = false; 
+    	Map<Product, Integer> productCount = new HashMap<Product, Integer>();
 
     	for (int i = 0; i < productList.size(); i++) {
     		Product p = productList.get(i);
@@ -33,9 +34,22 @@ public class Warehouse extends MapObject{
     				inventory.remove(p);
     			}
 
+    			if (productCount.containsKey(p)) {
+    				productCount.put(p, productCount.get(p)+1);
+    			} else {
+    				productCount.put(p, 1);
+    			}
+
     			// Remove from productList
     			productList.remove(i);
     		}
+    	}
+
+    	// Add loadCommand
+    	for (Product p : productCount.keySet()) {
+    		LoadCommand lc = new LoadCommand(d, o, p, productCount.get(p), this);
+    		d.add(lc);
+    		d.availableAt += lc.getTime();
     	}
 
     	return change;
