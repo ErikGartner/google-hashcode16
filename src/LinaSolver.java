@@ -21,7 +21,7 @@ public class LinaSolver {
 		PriorityQueue<Drone> available = new PriorityQueue(p.droneList);
 
 		while (p.currentTurn < p.maxTurns) {
-			Drone d = queue.poll();
+			Drone d = available.poll();
 			p.currentTurn = d.availableAt;
 
 			if (d == null) {
