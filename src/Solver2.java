@@ -57,6 +57,8 @@ public class Solver2 {
                 droneCapacity += p.weight;
             }
         }
+
+        return products;
     }
 
     public Order bestOrderFor(Drone d) {        
