@@ -3,7 +3,10 @@
  */
 public class Product {
 
-    public int id;
     public int weight;
+
+    public Product(int weight) {
+        this.weight = weight;
+    }
 
 }

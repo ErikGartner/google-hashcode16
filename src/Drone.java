@@ -9,4 +9,5 @@ public class Drone extends MapObject{
     public int maxPayload;
     public Map<Product, Integer> inventory;
 
+
 }
