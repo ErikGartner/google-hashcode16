@@ -1,3 +1,5 @@
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -29,6 +31,12 @@ public class Solver2 {
     }
 
     private void deliver(List<Warehouse> warehouses, List<Product> productList, Order o, Drone d) {
+
+        // Sort by distance
+        Collections.sort(warehouses, new ClosestSorter(d));
+
+
+
     }
 
     private List<Warehouse> chooseWarehouses(Drone d, List<Product> productList, Order o) {
@@ -42,5 +50,20 @@ public class Solver2 {
         return null;
     }
 
+    class ClosestSorter implements Comparator<MapObject> {
+
+        public MapObject point;
+
+        public ClosestSorter(MapObject m) {
+            point = m;
+        }
+
+        @Override
+        public int compare(MapObject o1, MapObject o2) {
+            int d1 = o1.distanceSq(point);
+            int d2 = o2.distanceSq(point);
+            return d1 - d2;
+        }
+    }
 
 }
