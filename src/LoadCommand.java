@@ -7,7 +7,7 @@ public class LoadCommand extends Command {
     public String commandString;
 
     public LoadCommand(Drone d, Order o, Product p, int count, Warehouse w) {
-        commandString = d.id + " L " + o.id + " " + p.id + " " + count;
+        commandString = d.id + " L " + w.id + " " + p.id + " " + count;
         time = d.distance(w) + 1;
     }
 
