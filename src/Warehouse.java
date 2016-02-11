@@ -14,5 +14,6 @@ public class Warehouse extends MapObject{
     }
 
     public boolean take(List<Product> productList, Drone d) {
+
     }
 }
