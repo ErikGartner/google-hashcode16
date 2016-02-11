@@ -4,8 +4,10 @@
 public class Product {
 
     public int weight;
+    public int id;
 
-    public Product(int weight) {
+    public Product(int weight, int id) {
         this.weight = weight;
+        this.id = id;
     }
 }
