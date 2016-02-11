@@ -18,7 +18,7 @@ public class Main {
         int nbrProducts = sc.nextInt();
         List<Product> productsList = new ArrayList<Product>(nbrProducts);
         for(int i = 0; i < nbrProducts; i++ ){
-            productsList.add(new Product(sc.nextInt()););
+            productsList.add(new Product(sc.nextInt()));
         }
 
         int nbrWarehouses = sc.nextInt();
@@ -53,7 +53,7 @@ public class Main {
         List<Drone> droneList = new ArrayList<>(nbrDrones);
         for(int i = 0; i < nbrDrones; i++ ){
             Drone d = new Drone(warehouseList.get(0).r, warehouseList.get(0).c);
-            droneList.add(d)
+            droneList.add(d);
         }
 
         Problem p = new Problem(productsList, warehouseList, orderList, droneList);

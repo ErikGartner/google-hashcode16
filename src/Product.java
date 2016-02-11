@@ -8,5 +8,4 @@ public class Product {
     public Product(int weight) {
         this.weight = weight;
     }
-
 }

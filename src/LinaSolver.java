@@ -6,7 +6,7 @@ public class LinaSolver {
 			long sum = 0;
 
 			for (Product p : order.products) {
-				sum += order.distanceTo(p.closestWarehouse());
+				sum += order.distance(p.closestWarehouse());
 			}
 
 			order.priority = sum;
