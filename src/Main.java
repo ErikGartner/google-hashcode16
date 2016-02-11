@@ -20,7 +20,7 @@ public class Main {
         int nbrProducts = sc.nextInt();
         List<Product> productsList = new ArrayList<Product>(nbrProducts);
         for(int i = 0; i < nbrProducts; i++ ){
-            productsList.add(new Product(sc.nextInt()));
+            productsList.add(new Product(sc.nextInt(), i));
         }
 
         int nbrWarehouses = sc.nextInt();
@@ -39,7 +39,7 @@ public class Main {
         int nbrOrders = sc.nextInt();
         List<Order> orderList = new ArrayList<Order>(nbrOrders);
         for(int i = 0; i < nbrOrders; i++ ){
-            Order o = new Order(sc.nextInt(), sc.nextInt());
+            Order o = new Order(sc.nextInt(), sc.nextInt(), i);
             Map<Product, Integer> inventory = new HashMap<Product, Integer>();
             o.products = inventory;
             int n = sc.nextInt();
@@ -55,7 +55,7 @@ public class Main {
 
         List<Drone> droneList = new ArrayList<>(nbrDrones);
         for(int i = 0; i < nbrDrones; i++ ){
-            Drone d = new Drone(warehouseList.get(0).r, warehouseList.get(0).c);
+            Drone d = new Drone(warehouseList.get(0).r, warehouseList.get(0).c, i);
             droneList.add(d);
         }
 
