@@ -13,9 +13,11 @@ public class Solver2 {
     }
 
     public void solve() {
-        for(Drone d: problem.droneList) {
-            Collections.sort(problem.orderList, new ClosestSorter(d));
-            solve(d);
+        while(problem.orderList.size() != 0) {
+            for (Drone d : problem.droneList) {
+                Collections.sort(problem.orderList, new ClosestSorter(d));
+                solve(d);
+            }
         }
         int commands = 0;
         for(Drone d : problem.droneList) {
@@ -40,12 +42,14 @@ public class Solver2 {
             List<Warehouse> warehouses = chooseWarehouses(d, productList, o);
           //  System.out.println("Deliver for drone: " + d.id);
            // System.out.println("Deliver for drone at time: " + d.availableAt);
-            deliver(warehouses, productList, o, d);
+            if(deliver(warehouses, productList, o, d)){
+                return;
+            }
         }
 
     }
 
-    private void deliver(List<Warehouse> warehouses, List<Product> productList, Order o, Drone d) {
+    private boolean deliver(List<Warehouse> warehouses, List<Product> productList, Order o, Drone d) {
 
         Collections.sort(warehouses, new ClosestSorter(d));
         for(Warehouse w : warehouses) {
@@ -70,12 +74,12 @@ public class Solver2 {
                 break;
             }
         }
+        d.inventory = new HashMap<>();
         if(empty){
             problem.orderList.remove(o);
-            Collections.sort(problem.orderList, new ClosestSorter(d));
+            return true;
         }
-
-        d.inventory = new HashMap<>();
+        return false;
     }
 
     private List<Warehouse> chooseWarehouses(Drone d, List<Product> productList, Order o) {
