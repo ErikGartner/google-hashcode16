@@ -10,4 +10,7 @@ public class Drone extends MapObject{
     public Map<Product, Integer> inventory;
 
 
+    public Drone(int r, int c) {
+        super(r, c);
+    }
 }
