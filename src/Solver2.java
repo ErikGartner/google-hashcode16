@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by erik on 11/02/16.
@@ -22,10 +19,13 @@ public class Solver2 {
 
     public void solve(Drone d) {
 
+        System.out.println("Solving for drone: " + d.id);
         while(d.availableAt < problem.maxTurns) {
             Order o = bestOrderFor(d);
             List<Product> productList = chooseProductFrom(d, o);
             List<Warehouse> warehouses = chooseWarehouses(d, productList, o);
+            System.out.println("Deliver for drone: " + d.id);
+            System.out.println("Deliver for drone at time: " + d.availableAt);
             deliver(warehouses, productList, o, d);
         }
 
@@ -41,7 +41,7 @@ public class Solver2 {
             Collections.sort(warehouses, new ClosestSorter(d));
 
             Warehouse w = warehouses.get(0);
-            if(!w.take(productList, d)){
+            if(!w.take(productList, d, o)){
                 warehouses.remove(w);
             }
 
@@ -53,10 +53,11 @@ public class Solver2 {
             d.commands.add(c);
         }
 
+        d.inventory = new HashMap<>();
     }
 
     private List<Warehouse> chooseWarehouses(Drone d, List<Product> productList, Order o) {
-        return problem.warehouseList;
+        return new ArrayList<>(problem.warehouseList);
     }
 
     private List<Product> chooseProductFrom(Drone d, Order o) {
@@ -94,7 +95,7 @@ public class Solver2 {
         public int compare(MapObject o1, MapObject o2) {
             int d1 = o1.distanceSq(point);
             int d2 = o2.distanceSq(point);
-            return d1 - d2;
+            return d1 -  d2;
         }
     }
 

@@ -57,6 +57,7 @@ public class Main {
         List<Drone> droneList = new ArrayList<>(nbrDrones);
         for(int i = 0; i < nbrDrones; i++ ){
             Drone d = new Drone(warehouseList.get(0).r, warehouseList.get(0).c, i);
+            d.maxPayload = maxPayload;
             droneList.add(d);
         }
 

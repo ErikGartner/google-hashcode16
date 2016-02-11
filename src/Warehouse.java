@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,7 @@ public class Warehouse extends MapObject{
     	// Add loadCommand
     	for (Product p : productCount.keySet()) {
     		LoadCommand lc = new LoadCommand(d, o, p, productCount.get(p), this);
-    		d.add(lc);
+    		d.commands.add(lc);
     		d.availableAt += lc.getTime();
     	}
 
