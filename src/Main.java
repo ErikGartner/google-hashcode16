@@ -50,7 +50,13 @@ public class Main {
             }
         }
 
-        Problem p = new Problem(pro)
+        List<Drone> droneList = new ArrayList<>(nbrDrones);
+        for(int i = 0; i < nbrDrones; i++ ){
+            Drone d = new Drone(warehouseList.get(0).r, warehouseList.get(0).c);
+            droneList.add(d)
+        }
+
+        Problem p = new Problem(productsList, warehouseList, orderList, droneList);
 
     }
 

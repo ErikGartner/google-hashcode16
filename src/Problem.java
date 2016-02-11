@@ -10,4 +10,10 @@ public class Problem {
     public List<Warehouse> warehouseList;
     public List<Product> productList;
 
+    public Problem(List<Product> productsList, List<Warehouse> warehouseList, List<Order> orderList, List<Drone> droneList) {
+        this.droneList = droneList;
+        this.productList = productsList;
+        this.warehouseList = warehouseList;
+        this.orderList = orderList;
+    }
 }
