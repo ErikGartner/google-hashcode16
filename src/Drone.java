@@ -22,4 +22,12 @@ public class Drone extends MapObject{
     public int compareTo(Object o) {
 		return availableAt - ((Drone)o).availableAt;
 	}
+
+    public String getCommandString() {
+        StringBuilder sb = new StringBuilder();
+        for(Command c: commands) {
+            sb.append(c.toString() + "\n");
+        }
+        return sb.toString();
+    }
 }
