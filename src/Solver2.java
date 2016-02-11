@@ -40,6 +40,7 @@ public class Solver2 {
     }
 
     private List<Warehouse> chooseWarehouses(Drone d, List<Product> productList, Order o) {
+        return problem.warehouseList;
     }
 
     private List<Product> chooseProductFrom(Drone d, Order o) {
