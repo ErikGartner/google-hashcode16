@@ -32,6 +32,9 @@ public class Solver2 {
 
         //System.out.println("Solving for drone: " + d.id);
         while(d.availableAt < problem.maxTurns) {
+            if(problem.orderList.size() == 0) {
+                return;
+            }
             Order o = bestOrderFor(d);
             List<Product> productList = chooseProductFrom(d, o);
             List<Warehouse> warehouses = chooseWarehouses(d, productList, o);
@@ -69,6 +72,7 @@ public class Solver2 {
         }
         if(empty){
             problem.orderList.remove(o);
+            Collections.sort(problem.orderList, new ClosestSorter(d));
         }
 
         d.inventory = new HashMap<>();

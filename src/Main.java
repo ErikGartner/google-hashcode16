@@ -26,7 +26,7 @@ public class Main {
         int nbrWarehouses = sc.nextInt();
         List<Warehouse> warehouseList = new ArrayList<Warehouse>(nbrWarehouses);
         for(int i = 0; i < nbrWarehouses; i++ ){
-            Warehouse w = new Warehouse(sc.nextInt(), sc.nextInt());
+            Warehouse w = new Warehouse(sc.nextInt(), sc.nextInt(), i);
             warehouseList.add(w);
             Map<Product, Integer> inventory = new HashMap<Product, Integer>();
             w.inventory = inventory;

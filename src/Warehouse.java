@@ -10,8 +10,9 @@ public class Warehouse extends MapObject{
     public int id;
     public Map<Product, Integer> inventory;
 
-    public Warehouse(int r, int c) {
+    public Warehouse(int r, int c, int id) {
         super(r, c);
+        this.id= id;
     }
 
     public boolean take(List<Product> productList, Drone d, Order o) {
