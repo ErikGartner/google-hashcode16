@@ -6,7 +6,7 @@ public class DeliverCommand extends Command {
     public int time;
     public String commandString;
 
-    public DeliverCommand(Drone d, Order o, Product p, int count, Order o) {
+    public DeliverCommand(Drone d, Order o, Product p, int count) {
         commandString = d.id + " D " + o.id + " " + p.id + " " + count;
         time = d.distance(o) + 1;
     }
