@@ -12,7 +12,11 @@ public abstract class MapObject{
     }
 
     public int distance(MapObject l) {
-        return 0;
+        return (int)Math.ceil(Math.sqrt(distanceSq(l)));
+    }
+
+    public int distanceSq(MapObject l) {
+        return Math.abs(r*r - l.r * l.r) + Math.abs(c*c - l.c * l.c);
     }
 
 }
