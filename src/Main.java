@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
@@ -5,9 +7,9 @@ import java.util.*;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner sc = new Scanner(args[0]);
+        Scanner sc = new Scanner(new File(args[0]));
 
         int rows = sc.nextInt();
         int columns = sc.nextInt();
@@ -25,6 +27,7 @@ public class Main {
         List<Warehouse> warehouseList = new ArrayList<Warehouse>(nbrWarehouses);
         for(int i = 0; i < nbrWarehouses; i++ ){
             Warehouse w = new Warehouse(sc.nextInt(), sc.nextInt());
+            warehouseList.add(w);
             Map<Product, Integer> inventory = new HashMap<Product, Integer>();
             w.inventory = inventory;
 
