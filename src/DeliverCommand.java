@@ -3,20 +3,20 @@
  */
 public class DeliverCommand extends Command {
 
-    public Drone drone;
-    public Order order;
-    public Product product;
-    public int count;
+    public int time;
+    public String commandString;
 
-    public DeliverCommand(Drone d, Order o, Product p, int count) {
-        this.drone = d;
-        this.order = o;
-        this.product = p;
-        this.count = count;
+    public DeliverCommand(Drone d, Order o, Product p, int count, Warehouse w) {
+        commandString = d.id + " D " + o.id + " " + p.id + " " + count;
+        time = d.distance(w) + 1;
     }
 
     public String toString() {
-        return drone.id + " D " + order.id + " " + " " + product.id + " " + count;
+        return commandString;
+    }
+
+    public int getTime() {
+        return time;
     }
 
 }
