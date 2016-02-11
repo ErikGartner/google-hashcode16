@@ -15,5 +15,7 @@ public class LinaSolver {
 		Collections.sort(orders);
 	}
 
-	
+	public void solve() {
+
+	}	
 }
