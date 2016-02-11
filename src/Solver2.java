@@ -32,10 +32,21 @@ public class Solver2 {
 
     private void deliver(List<Warehouse> warehouses, List<Product> productList, Order o, Drone d) {
 
-        // Sort by distance
-        Collections.sort(warehouses, new ClosestSorter(d));
+        while(!productList.isEmpty()) {
+
+            // Sort by distance
+            Collections.sort(warehouses, new ClosestSorter(d));
+
+            Warehouse w = warehouses.get(0);
+            if(!w.take(productList, d)) {
+                warehouses.remove(w);
+            }
 
 
+            // go to each warehouse and pick products
+
+
+        }
 
     }
 

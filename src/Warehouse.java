@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,5 +11,8 @@ public class Warehouse extends MapObject{
 
     public Warehouse(int r, int c) {
         super(r, c);
+    }
+
+    public boolean take(List<Product> productList, Drone d) {
     }
 }
