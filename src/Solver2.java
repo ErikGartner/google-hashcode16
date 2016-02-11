@@ -48,7 +48,7 @@ public class Solver2 {
         }
 
         for(Product p: d.inventory.keySet()) {
-            Command c = new DeliverCommand(d, o, p, d.inventory.get(p));
+            Command c = new DeliverCommand(d, o, p, d.inventory.get(p), o);
             d.availableAt += c.getTime();
             d.commands.add(c);
         }
