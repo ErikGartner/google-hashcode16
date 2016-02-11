@@ -15,6 +15,8 @@ public class Solver2 {
     }
 
     public void solve() {
+        sort(problem.orderList);
+
         for(Drone d: problem.droneList) {
             solve(d);
         }
