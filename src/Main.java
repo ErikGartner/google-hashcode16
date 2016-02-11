@@ -56,7 +56,7 @@ public class Main {
             droneList.add(d);
         }
 
-        Problem p = new Problem(productsList, warehouseList, orderList, droneList);
+        Problem p = new Problem(productsList, warehouseList, orderList, droneList, turns, maxPayload);
 
     }
 

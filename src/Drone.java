@@ -8,7 +8,7 @@ public class Drone extends MapObject{
     public int id;
     public int maxPayload;
     public Map<Product, Integer> inventory;
-    public long availableAt;
+    public int availableAt;
 
     public Drone(int r, int c) {
         super(r, c);
