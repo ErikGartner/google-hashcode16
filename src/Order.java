@@ -15,6 +15,6 @@ public class Order extends MapObject {
     }
 
     public int compareTo(Object o) {
-		return priority - ((Order)o).priority;
+		return products.size() - ((Order)o).products.size();
 	}
 }
